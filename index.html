@@ -47,14 +47,22 @@
     .hero-price-tag{display:flex;align-items:baseline;gap:12px;margin-top:25px}
     .price-num{font-family:"Barlow Condensed";font-weight:900;font-size:38px;line-height:1;color:#fff}
     .price-note{color:var(--muted);font-size:12px;line-height:1.3}
-    .media-frame{position:relative;border:1px solid var(--line);background:var(--gunmetal);overflow:hidden;border-radius:var(--radius);isolation:isolate}
-    .media-frame:after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 80px #0006;pointer-events:none}
-    .media-frame img{aspect-ratio:4/5;object-fit:cover;filter:saturate(.75) contrast(1.08)}
-    .media-label{position:absolute;z-index:2;left:16px;bottom:16px;padding:9px 12px;background:#0c0d0fdb;border-left:3px solid var(--red);font-family:"Barlow Condensed";font-weight:700;text-transform:uppercase;letter-spacing:.08em;font-size:13px}
-    .product-float{position:absolute;right:-22px;bottom:-35px;width:48%;padding:14px;background:#15171af5;border:1px solid var(--line);border-radius:14px;box-shadow:0 25px 60px #0008}
-    .product-float img{aspect-ratio:1;object-fit:contain;background:#0d0e10;border-radius:8px;padding:6px}
-    .product-float strong{display:block;font-family:"Barlow Condensed";font-size:18px;text-transform:uppercase;margin-top:9px}
-    .product-float small{color:var(--muted);display:block;font-size:11px}
+    
+    /* Hero Carousel 3:4 */
+    .hero-visual{position:relative;width:100%}
+    .hero-carousel{position:relative;width:100%;aspect-ratio:3/4;border:1px solid var(--line);background:var(--gunmetal);border-radius:var(--radius);overflow:hidden;isolation:isolate;box-shadow:0 20px 50px rgba(0,0,0,.5)}
+    .hero-carousel:after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 80px rgba(0,0,0,.45);pointer-events:none;z-index:3}
+    .carousel-track{position:relative;width:100%;height:100%}
+    .carousel-slide{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity .6s cubic-bezier(.4,0,.2,1),transform .6s ease;transform:scale(1.03);z-index:1}
+    .carousel-slide.active{opacity:1;visibility:visible;transform:scale(1);z-index:2}
+    .carousel-slide img{width:100%;height:100%;object-fit:cover;filter:saturate(.85) contrast(1.06)}
+    .carousel-caption{position:absolute;z-index:4;left:16px;bottom:16px;padding:8px 14px;background:rgba(12,13,15,.88);border-left:3px solid var(--red);backdrop-filter:blur(8px);font-family:"Barlow Condensed",sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.08em;font-size:13px}
+    .carousel-nav{position:absolute;top:16px;right:16px;z-index:4;display:flex;gap:6px}
+    .carousel-btn{width:32px;height:32px;border-radius:6px;background:rgba(12,13,15,.75);border:1px solid var(--line);color:#fff;display:grid;place-items:center;cursor:pointer;font-size:13px;transition:.2s;backdrop-filter:blur(6px)}
+    .carousel-btn:hover{background:var(--red);border-color:var(--red)}
+    .carousel-dots{position:absolute;bottom:20px;right:20px;z-index:4;display:flex;gap:6px}
+    .carousel-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.35);border:none;padding:0;cursor:pointer;transition:.25s}
+    .carousel-dot.active{width:22px;border-radius:10px;background:var(--red2)}
 
     /* System & Trinity Blueprint */
     .trinity-diagram{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px}
@@ -86,8 +94,6 @@
     .card-number{font-family:"Barlow Condensed";font-size:14px;color:var(--red2);letter-spacing:.15em;font-weight:800;margin-bottom:20px}
     .card p{color:var(--muted);font-size:14px;margin:12px 0 0}
     .statement{font-family:"Barlow Condensed";font-size:clamp(28px,3.8vw,44px);font-weight:700;text-transform:uppercase;line-height:1.08;max-width:920px;margin:54px auto 0;text-align:center}
-    .split{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
-    .body-copy p{color:#bdc0c6;margin:0 0 18px}
     
     .steps{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
     .step{padding:34px;background:var(--gunmetal)}
@@ -194,10 +200,9 @@
     @media(max-width:960px){
       .nav-links,.nav .btn-small{display:none}
       .hero{min-height:auto}
-      .hero-grid,.split,.proof-grid,.risk-box,.trinity-diagram,.products-showcase,.pricing-grid{grid-template-columns:1fr}
+      .hero-grid,.proof-grid,.risk-box,.trinity-diagram,.products-showcase,.pricing-grid{grid-template-columns:1fr}
       .hero-copy{order:1}
-      .hero-visual{order:2;max-width:620px}
-      .product-float{right:8px}
+      .hero-visual{order:2;max-width:580px;margin:auto;width:100%}
       .problem-grid,.benefit-grid,.quotes{grid-template-columns:repeat(2,1fr)}
       .steps{grid-template-columns:1fr}
       .step+.step{border-left:0;border-top:1px solid var(--line)}
@@ -215,8 +220,6 @@
       .hero-grid{gap:42px}
       .hero-actions{display:grid}
       .btn{width:100%}
-      .media-frame img{aspect-ratio:4/4.6}
-      .product-float{width:48%;bottom:-28px}
       .problem-grid,.benefit-grid,.quotes,.fit-grid,.order-grid,.form-grid,.result-recommendations{grid-template-columns:1fr}
       .full{grid-column:auto}
       .card{padding:23px}
@@ -258,7 +261,7 @@
   </nav>
 
   <main id="top">
-    <!-- 01 HERO -->
+    <!-- 01 HERO WITH 3:4 CAROUSEL -->
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-copy reveal">
@@ -287,15 +290,39 @@
             <span>Aman untuk motor harian &amp; injeksi</span>
           </div>
         </div>
+
         <div class="hero-visual reveal">
-          <figure class="media-frame">
-            <img data-asset="hero" alt="Pengguna motor harian di lingkungan perkotaan">
-            <figcaption class="media-label">Daily Urban Performance</figcaption>
-          </figure>
-          <div class="product-float">
-            <img data-asset="productF1" alt="Kabelsetan Force 1">
-            <strong>Force 1 (F1)</strong>
-            <small>Entry Performance Coil Booster</small>
+          <div class="hero-carousel" id="heroCarousel">
+            <div class="carousel-track">
+              <!-- Slide 1: Motor Daily -->
+              <div class="carousel-slide active">
+                <img data-asset="carousel1" alt="Daily Riding Urban Motor Performance">
+                <div class="carousel-caption">01 / Urban Daily Performance</div>
+              </div>
+              <!-- Slide 2: Pemasangan Force 1 -->
+              <div class="carousel-slide">
+                <img data-asset="carousel2" alt="Pemasangan Kabelsetan Force 1 pada Koil">
+                <div class="carousel-caption">02 / Instalasi Koil Force 1</div>
+              </div>
+              <!-- Slide 3: Ekosistem 3-in-1 -->
+              <div class="carousel-slide">
+                <img data-asset="carousel3" alt="Setup Ekosistem 3-in-1 Lengkap">
+                <div class="carousel-caption">03 / Setup Ekosistem 3-in-1</div>
+              </div>
+            </div>
+
+            <!-- Carousel Controls -->
+            <div class="carousel-nav">
+              <button class="carousel-btn" id="prevSlide" aria-label="Slide Sebelumnya">‹</button>
+              <button class="carousel-btn" id="nextSlide" aria-label="Slide Selanjutnya">›</button>
+            </div>
+
+            <!-- Dots Indicator -->
+            <div class="carousel-dots" id="carouselDots">
+              <button class="carousel-dot active" data-index="0" aria-label="Slide 1"></button>
+              <button class="carousel-dot" data-index="1" aria-label="Slide 2"></button>
+              <button class="carousel-dot" data-index="2" aria-label="Slide 3"></button>
+            </div>
           </div>
         </div>
       </div>
@@ -753,7 +780,7 @@
           </div>
           <div>
             <ul class="check-list">
-              <li>Pengecekan jumlah soket koil (1 socket / 2 socket)</li>
+              <li>Pemeriksaan tipe soket koil kendaraan</li>
               <li>Rekomendasi titik pasang grounding N2B terbaik</li>
               <li>Penjelasan detail fungsi modul penstabil E2</li>
               <li>Garansi produk original Kabelsetan</li>
@@ -850,7 +877,9 @@
       whatsappNumber: "6281234567890",
       whatsappDefaultMsg: "Halo Kabelsetan, saya ingin konsultasi upgrade motor harian saya.",
       assets: {
-        hero: "https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=1000&q=80",
+        carousel1: "https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=750&h=1000&q=80",
+        carousel2: "https://placehold.co/750x1000/15171a/e32636?text=02+|+Pemasangan+Force+1+Koil+(3:4)",
+        carousel3: "https://placehold.co/750x1000/1f2329/43d17a?text=03+|+Setup+Ekosistem+3-in-1+(3:4)",
         productF1: "https://placehold.co/600x600/1e2126/f4f4f2?text=Force+1+(F1)+Koil",
         productN2B: "https://placehold.co/600x600/1e2126/f4f4f2?text=Negative+Wire+(N2B)",
         productE2: "https://placehold.co/600x600/1e2126/f4f4f2?text=Electric+Acc+(E2)",
@@ -871,6 +900,64 @@
       const url = SITE_CONFIG.assets[el.dataset.assetVideo];
       if (url) el.src = url;
     });
+
+    // Inisialisasi Hero Karosel (3:4)
+    (function initCarousel() {
+      const slides = document.querySelectorAll(".carousel-slide");
+      const dots = document.querySelectorAll(".carousel-dot");
+      const btnPrev = document.getElementById("prevSlide");
+      const btnNext = document.getElementById("nextSlide");
+      const carousel = document.getElementById("heroCarousel");
+      
+      let currentIndex = 0;
+      let slideInterval;
+
+      function goToSlide(index) {
+        slides[currentIndex].classList.remove("active");
+        dots[currentIndex].classList.remove("active");
+        currentIndex = (index + slides.length) % slides.length;
+        slides[currentIndex].classList.add("active");
+        dots[currentIndex].classList.add("active");
+      }
+
+      function startAutoSlide() {
+        slideInterval = setInterval(() => {
+          goToSlide(currentIndex + 1);
+        }, 4000);
+      }
+
+      function stopAutoSlide() {
+        clearInterval(slideInterval);
+      }
+
+      if (btnPrev && btnNext) {
+        btnPrev.addEventListener("click", () => {
+          stopAutoSlide();
+          goToSlide(currentIndex - 1);
+          startAutoSlide();
+        });
+        btnNext.addEventListener("click", () => {
+          stopAutoSlide();
+          goToSlide(currentIndex + 1);
+          startAutoSlide();
+        });
+      }
+
+      dots.forEach((dot, idx) => {
+        dot.addEventListener("click", () => {
+          stopAutoSlide();
+          goToSlide(idx);
+          startAutoSlide();
+        });
+      });
+
+      if (carousel) {
+        carousel.addEventListener("mouseenter", stopAutoSlide);
+        carousel.addEventListener("mouseleave", startAutoSlide);
+      }
+
+      startAutoSlide();
+    })();
 
     // Pasang CTA Checkout Berdasarkan Paket
     document.querySelectorAll('[data-cta="checkout"]').forEach(el => {
