@@ -44,9 +44,11 @@
     .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin:30px 0 22px}
     .trust-inline{display:flex;flex-wrap:wrap;gap:10px 22px;color:var(--muted);font-size:13px;font-weight:600}
     .trust-inline span:before{content:"✓";color:var(--green);font-weight:900;margin-right:7px}
-    .hero-price-tag{display:flex;align-items:baseline;gap:12px;margin-top:25px}
-    .price-num{font-family:"Barlow Condensed";font-weight:900;font-size:38px;line-height:1;color:#fff}
-    .price-note{color:var(--muted);font-size:12px;line-height:1.3}
+    
+    /* Hero Price Tag Refined */
+    .hero-price-tag{display:inline-flex;align-items:center;gap:18px;margin-top:28px;padding:12px 18px;background:rgba(21,23,26,.85);border:1px solid var(--line);border-radius:12px;backdrop-filter:blur(8px)}
+    .price-num{font-family:"Barlow Condensed";font-weight:900;font-size:36px;line-height:1;color:#fff}
+    .price-note{color:var(--muted);font-size:12.5px;line-height:1.4;border-left:1px solid var(--line);padding-left:16px}
     
     /* Hero Carousel 3:4 */
     .hero-visual{position:relative;width:100%}
@@ -164,9 +166,9 @@
     .pricing-amount .note{color:var(--muted);font-size:12px;margin-top:4px}
     .pricing-features{margin:24px 0;flex:1}
     .pricing-features ul{list-style:none;padding:0;margin:0;display:grid;gap:12px}
-    .pricing-features li{display:flex;align-items:flex-start;gap:10px;font-size:13.5px;color:#d5d7db}
+    .pricing-features li{display:flex;align-items:flex-start;gap:10px;font-size:13.5px;color:#d5d7db;line-height:1.5}
     .pricing-features li b{color:#fff}
-    .pricing-features li:before{content:"✓";color:var(--green);font-weight:900;margin-top:1px}
+    .pricing-features li:before{content:"✓";color:var(--green);font-weight:900;margin-top:1px;flex-shrink:0}
     .pricing-card .btn{width:100%;margin-top:10px}
     .stock-tag{text-align:center;font-size:11px;color:var(--muted);margin-top:12px}
 
@@ -220,6 +222,7 @@
       .hero-grid{gap:42px}
       .hero-actions{display:grid}
       .btn{width:100%}
+      .hero-price-tag{width:100%;justify-content:space-between}
       .problem-grid,.benefit-grid,.quotes,.fit-grid,.order-grid,.form-grid,.result-recommendations{grid-template-columns:1fr}
       .full{grid-column:auto}
       .card{padding:23px}
@@ -274,7 +277,7 @@
           
           <div class="hero-price-tag">
             <div>
-              <span style="font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;font-weight:700">Mulai Dari</span>
+              <span style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;font-weight:700;display:block;margin-bottom:2px">Mulai Dari</span>
               <div class="price-num">Rp190.000</div>
             </div>
             <div class="price-note">Tersedia opsi unit tunggal (F1)<br>atau Paket Lengkap 3-in-1 Daily</div>
@@ -707,10 +710,10 @@
             </div>
             <div class="pricing-features">
               <ul>
-                <li><b>Force 1 (F1):</b> Maksimalkan arus ke koil pengapian</li>
-                <li><b>Negative Wire (N2B):</b> Arus balik massa bebas hambatan</li>
-                <li><b>Electric Accelerator (E2):</b> Arus modul &amp; sensor stabil</li>
-                <li><b>Hasil Sinergis:</b> Tarikan spontan, getaran halus, efisien BBM</li>
+                <li><b>1 unit Force 1 (F1)</b> Ignition Booster</li>
+                <li><b>1 unit Negative Wire (N2B)</b> Ground Cable</li>
+                <li><b>1 unit Electric Accelerator (E2)</b> Stabilizer</li>
+                <li>Sinergi 3 titik: Api padat, massa lancar, sensor stabil</li>
                 <li>Panduan komplit + Prioritas konsultasi teknis</li>
               </ul>
             </div>
