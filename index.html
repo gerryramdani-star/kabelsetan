@@ -12,9 +12,8 @@
     .announcement{background:var(--red);text-align:center;padding:9px 16px;font-size:12px;font-weight:800;letter-spacing:.15em;text-transform:uppercase}
     .nav{position:sticky;top:0;z-index:50;background:rgba(12,13,15,.88);border-bottom:1px solid #ffffff14;backdrop-filter:blur(16px)}
     .nav-inner{height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px}
-    .brand{display:flex;align-items:center;gap:12px;font-family:"Barlow Condensed";font-weight:800;font-size:24px;letter-spacing:.04em;text-transform:uppercase}
-    .brand-mark{width:34px;height:34px;border:2px solid var(--red);display:grid;place-items:center;transform:skew(-8deg);box-shadow:0 0 25px #e3263640}
-    .brand-mark span{transform:skew(8deg);color:var(--red)}
+    .brand{display:inline-flex;align-items:center;cursor:pointer}
+    .brand-logo{height:36px;width:auto;object-fit:contain;display:block}
     .nav-links{display:flex;gap:22px;color:var(--muted);font-size:13px;font-weight:700}
     .nav-links a:hover{color:#fff}
     .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 22px;border:1px solid transparent;border-radius:7px;background:var(--red);color:#fff;font-weight:800;font-size:14px;letter-spacing:.035em;text-transform:uppercase;cursor:pointer;transition:.25s;box-shadow:0 12px 35px #e326362e}
@@ -225,8 +224,7 @@
       .section{padding:76px 0}
       .announcement{font-size:10px}
       .nav-inner{height:62px}
-      .brand{font-size:20px}
-      .brand-mark{width:30px;height:30px}
+      .brand-logo{height:28px}
       .hero{padding:52px 0 75px}
       .hero-grid{gap:42px}
       .hero-actions{display:grid}
@@ -259,7 +257,7 @@
   <div class="announcement">Upgrade Ekosistem Kelistrikan Motor Harian — Tanpa Bongkar Mesin</div>
   <nav class="nav">
     <div class="container nav-inner">
-      <a class="brand" href="#top" aria-label="Kabelsetan"><span class="brand-mark"><span>K</span></span>Kabelsetan</a>
+      <a class="brand" href="#top" aria-label="Kabelsetan"><img data-asset="logo" alt="Logo Kabelsetan" class="brand-logo"></a>
       <div class="nav-links">
         <a href="#sistem">Sistem Kelistrikan</a>
         <a href="#produk">Lini Produk</a>
@@ -691,7 +689,7 @@
                 <p class="pricing-subtitle">Solusi tuntas ekosistem kelistrikan untuk mobilitas harian prima.</p>
               </div>
               <div class="pricing-amount">
-                <div class="price" style="color:var(--red2)">Rp670.000</div>
+                <div class="price" style="color:var(--red2)">Rp715.000</div>
                 <div class="note" style="color:#e0e0e0">Kabel F1 + Kabel N2B + Kabel E2</div>
               </div>
               <div class="pricing-features">
@@ -923,7 +921,7 @@
   <footer class="footer">
     <div class="container footer-inner">
       <div>
-        <a class="brand" href="#top"><span class="brand-mark"><span>K</span></span>Kabelsetan</a>
+        <a class="brand" href="#top" aria-label="Kabelsetan"><img data-asset="logo" alt="Logo Kabelsetan" class="brand-logo"></a>
         <p>Solusi kelistrikan motor harian tanpa bore-up atau modifikasi internal mesin. Hasil dapat bervariasi bergantung pada usia kendaraan, kondisi aki, dan perawatan motor harian Anda.</p>
       </div>
       <div>© <span id="yearNow"></span> Kabelsetan Official. All rights reserved.</div>
@@ -946,6 +944,7 @@
       whatsappNumber: "6281234567890",
       whatsappDefaultMsg: "Halo Kabelsetan, saya ingin konsultasi upgrade motor harian saya.",
       assets: {
+        logo: "https://placehold.co/240x60/transparent/ffffff?text=KABELSETAN",
         carousel1: "https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=750&h=1000&q=80",
         carousel2: "https://placehold.co/750x1000/15171a/e32636?text=02+|+Pemasangan+Force+1+Koil+(3:4)",
         carousel3: "https://placehold.co/750x1000/1f2329/43d17a?text=03+|+Setup+Ekosistem+3-in-1+(3:4)",
